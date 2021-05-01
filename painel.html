@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/painel.css">
+    <title>Painel</title>
+</head>
+<body>
+    <nav class="navbar">
+        <span id="span">X-Cópias</span>
+    </nav>
+    <div class="topactions">
+        <button onclick="cadastrar()" id="btn">novo usuário</button>
+        <span id="userlist">usuários:</span>
+    </div>
+    <div class="userinfos">
+        <div class="divusertop">
+            <span style="font-size: 1.8vw;">Iago</span>
+            <button id="btngeren">gerenciar</button>
+        </div>
+        <div class="divuserinfo">
+            <span style="font-size: 1.2vw;">cópias mensal: 80</span>
+            <span style="font-size: 1.2vw;">cópias restante: 64</span>
+        </div>
+    </div>
+    <div class="actions">
+        <button onclick="retirarcopias()" id="btngerenreti" style="color: white;">retirar</button>
+        <button onclick="retornarcopias()"id="btngerenreto" style="color: white;">retornar</button>
+        <button onclick="renovarcopias()" id="btngerenreno" style="color: white;">renovar</button>
+    </div>
+    <div class="userinfos">
+        <div class="divusertop">
+            <span style="font-size: 1.8vw;">Aline</span>
+            <button id="btngeren">gerenciar</button>
+        </div>
+        <div class="divuserinfo">
+            <span style="font-size: 1.2vw;">cópias mensal: 80</span>
+            <span style="font-size: 1.2vw;">cópias restante: 64</span>
+        </div>
+    </div>
+    <div class="actions">
+        <button onclick="retirarcopias()" id="btngerenreti" style="color: white;">retirar</button>
+        <button onclick="retornarcopias()"id="btngerenreto" style="color: white;">retornar</button>
+        <button onclick="renovarcopias()" id="btngerenreno" style="color: white;">renovar</button>
+    </div>
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form class="contents">
+
+                <span id="spantop">cadastro de professores</span>
+                
+                <div class="labelinpt">
+                    <label style="align-self: flex-start; font-size: 1.2vw;">nome</label>
+                    <input id="inptuser" type="text" placeholder="professor..." />
+                </div>
+                <div class="labelinpt">
+                    <label style="align-self: flex-start; font-size: 1.2vw;">usuário</label>
+                    <input id="inptuser" type="text" placeholder="usuario..." />
+                </div>
+                <div class="labelinpt">
+                    <label style="align-self: flex-start; font-size: 1.2vw;">senha</label>
+                    <input id="inptuser" type="password" placeholder="senha..."/>
+                </div>
+                <input id="btnformmodal" type="button" value="CADASTRAR">
+          </form>
+        </div>
+    </div>
+
+    <div id="myModalretirar" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form class="contents">
+                <span id="spantop">retirar</span>
+                <span style="font-size: 1.5vw;">Escolha uma quantidade de cópias para serem retiradas deste determinado professor. </span>
+                <div class="labelinpt">
+                    <label style="align-self: flex-start; font-size: 1.2vw;">quantidade</label>
+                    <input id="inptuser" type="number" placeholder="EX:5" />
+                </div>
+                <input id="btnformmodal" type="button" value="RETIRAR">
+          </form>
+        </div>
+    </div>
+    <div id="myModalretornar" class="modal">
+
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form class="contents">
+                <span id="spantop">retornar</span>
+                <span style="font-size: 1.5vw;">Escolha uma quantidade para ser reotornada à quantidade restante deste determinado professor</span>
+                <div class="labelinpt">
+                    <label style="align-self: flex-start; font-size: 1.1vw;">quantidade</label>
+                    <input id="inptuser" type="number" placeholder="EX:5" />
+                </div>
+                <input id="btnformmodal" type="button" value="RETORNAR">
+          </form>
+        </div>
+    </div>
+    <div id="myModalrenovar" class="modal">
+
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form class="contents">
+                <span id="spantop">renovar</span>
+                <span style="font-size: 1.5vw;">Escolha uma nova quantidade de cópias mensal para este determinado professor</span>
+                <div class="labelinpt">
+                    <label style="align-self: flex-start; font-size: 1.1vw;">quantidade</label>
+                    <input id="inptuser" type="number" placeholder="EX:5" />
+                </div>
+                <input id="btnformmodal" type="button" value="RENOVAR">
+          </form>
+        </div>
+    </div>
+    <script>
+        
+        function cadastrar(){
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+
+            var closebtn = document.getElementsByClassName("close")[0];
+
+            closebtn.onclick = function(){
+                modal.style.display = "none";
+            }
+        }
+
+        function retirarcopias(id){
+      
+            var modalret = document.getElementById("myModalretirar");
+            modalret.style.display = "block";
+
+            var closebtn = document.getElementsByClassName("close")[1];
+
+            closebtn.onclick = function(){
+                modalret.style.display = "none";
+            }
+
+        }
+
+        function retornarcopias(id){
+          
+            var modalreto = document.getElementById("myModalretornar");
+            modalreto.style.display = "block";
+
+            var closebtn = document.getElementsByClassName("close")[2];
+
+            closebtn.onclick = function(){
+                modalreto.style.display = "none";
+            }
+
+        }
+        function renovarcopias(id){
+           
+            var modalreno = document.getElementById("myModalrenovar");
+            modalreno.style.display = "block";
+
+            var closebtn = document.getElementsByClassName("close")[3];
+
+            closebtn.onclick = function(){
+                modalreno.style.display = "none";
+            }
+
+        }
+
+
+        window.onclick = function(){
+            if (event.target == document.getElementById("myModalretirar")) {
+                document.getElementById("myModalretirar").style.display = "none";
+            }else{
+                if(event.target == document.getElementById("myModalretornar")){
+                    document.getElementById('myModalretornar').style.display = "none";
+                }else{
+                    if(event.target == document.getElementById("myModalrenovar")){
+                        document.getElementById("myModalrenovar").style.display = "none";
+                    }else{
+                        if(event.target == document.getElementById("myModal")){
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
+     
+    </script>
+</body>
+</html>
