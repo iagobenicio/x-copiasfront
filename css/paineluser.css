@@ -10,6 +10,7 @@ html, body{
     background-color: #536A74;
     height: 6%;
     align-items: center;
+    justify-content: space-between;
 }
 .contents{
     display: flex;
@@ -29,3 +30,13 @@ html, body{
     color: white;
     padding-left: 20px;
 }
+#logout{
+    width: 3vw;
+    margin-right: 25px;
+    color: red;
+    background: none;
+    outline: none;
+    text-decoration: none;
+    font-size: 1.2vw;
+}
+
