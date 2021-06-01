@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Perfil</title>
 </head>
 <body>
@@ -24,7 +23,7 @@
             <div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/painel" style="color: white;">inicio</a>
+                    <a class="nav-link" href="painel.html" style="color: white;">inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" style="color: white;">perfil</a>
@@ -32,7 +31,7 @@
             </ul>
             </div>
             <div class="buttonexit">
-            <a href="/login"><button  class="btn btn-outline-light" type="submit">sair</button></a>
+            <a href="login.html"><button  class="btn btn-outline-light" type="submit">sair</button></a>
             </div>
           </div>
         </div>
@@ -43,8 +42,8 @@
             <span style="font-family: sans-serif; font-size: 24px;">Meus dados</span>
         </div>
         <div class="row" style="padding-left: 10px;">
-            <span style="font-family: sans-serif; font-size: 18px;">nome: <span style="color: #0b6a8d;">{{Auth::user()->name}}</span></span>
-            <span style="font-family: sans-serif; font-size: 18px;">usuário: <span style="color: #0b6a8d;">{{Auth::user()->user}}</span></span>
+            <span style="font-family: sans-serif; font-size: 18px;">nome: <span style="color: #0b6a8d;">name</span></span>
+            <span style="font-family: sans-serif; font-size: 18px;">usuário: <span style="color: #0b6a8d;">user</span></span>
         </div>
         <div class="row">
             <span style="font-family: sans-serif; font-size: 24px;">Formulários de edição</span>
@@ -87,69 +86,5 @@
             </div>
         </div>
     </div>
-    <script>
-        function sendedituser(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            data = {
-                nome: $("input[name=nomeuseredit]").val(),
-                username: $("input[name=usernameedit]").val(),
-            },
-            $.ajax({
-                type: "POST",
-                url: "{{route('userinfo')}}",
-                data: data,
-                success: function(response) {
-                    if(response["msgnotok"]){
-                        document.getElementById("msgedituser").style.color = "red";
-                        document.getElementById("msgedituser").style.display = "block";
-                        document.getElementById("msgedituser").innerText = response["msgnotok"];
-                    }
-                    else{
-                        document.getElementById("msgedituser").style.color = "green";
-                        document.getElementById("msgedituser").style.display = "block";      
-                        document.getElementById("msgedituser").innerText = "alterações salvas";
-                    }
-                },
-                error: (e) => {
-                    alert('Erro no processo');
-                },
-            });
-        }
-        function sendeditpass(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            data = {
-                pass: $("input[name=passatual]").val(),
-                newpass: $("input[name=newuserpass]").val(),
-            },
-            $.ajax({
-                type: "POST",
-                url: "{{route('userpass')}}",
-                data: data,
-                success: function(response) {
-                    if(response["msgnotok"]){
-                        document.getElementById("msgedituserpass").style.color = "red";
-                        document.getElementById("msgedituserpass").style.display = 'block';
-                        document.getElementById("msgedituserpass").innerText = response["msgnotok"];
-                    }
-                    else{
-                        document.getElementById("msgedituserpass").style.color = "green";
-                        document.getElementById("msgedituserpass").style.display = 'block';
-                        document.getElementById("msgedituserpass").innerText = "senha alterada";
-                    }
-                },
-                error: (e) => {
-                    alert('Erro no processo');
-                },
-            });
-        }
-    </script>
 </body>
 </html>
