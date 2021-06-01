@@ -7,29 +7,24 @@ html,body{
     justify-content: center;
 }
 .contents{
-    height: 80%;
+    height: 50%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     width: 90%;
-
 }
-.inputuser, .inputpassword{
-    width: 40%;
+.mb-3{
+    width: 30%;
 }
-#inptuser{
+#exampleInputUsername,#exampleInputPassword{
     width: 100%;
-    height: 4vh;
+    height: 60%;
 }
-#title{
-    font-size: 3vw;
+#exampleInputUsername:focus,#exampleInputPassword:focus{
+    width: 100%;
+    height: 60%;
+    box-shadow: none;
+    border-color: #3a6475;
 }
-#btn{
-    color: white;
-    font-size: 1vw;
-    background-color: #536A74;
-    border-style: none;
-    width: 15%;
-    height: 3vh;
-}
+

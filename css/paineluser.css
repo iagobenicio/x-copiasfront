@@ -3,40 +3,21 @@ html, body{
     height: 100%;
     margin: 0;
 }
-
-.navbar{
-    display: flex;
-    flex-direction: row;
-    background-color: #536A74;
-    height: 6%;
-    align-items: center;
-    justify-content: space-between;
+.buttonexit{
+    display: flex; 
+    flex: 2; 
+    justify-content: flex-end;
 }
-.contents{
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
+.containerRelatorio{
+    border-style: solid; 
+    border-width: 1px; 
+    border-color: #3a6475;
+    overflow-y: scroll;
+    padding-left: 10px;
+    height: 300px;
 }
-.dadosinfo{
-    display: flex;
-    flex-direction: column;
+@media screen and (min-width: 992px) {
+    .containerRelatorio{
+        width: 600px;
+    }
 }
-.copiasinfo{
-    display: flex;
-    flex-direction: column;
-}
-#span{
-    font-size: 2vw;
-    color: white;
-    padding-left: 20px;
-}
-#logout{
-    width: 3vw;
-    margin-right: 25px;
-    color: red;
-    background: none;
-    outline: none;
-    text-decoration: none;
-    font-size: 1.2vw;
-}
-
